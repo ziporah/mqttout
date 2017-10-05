@@ -7,7 +7,7 @@ I've made this to send events directly to RabbitMQ, with MQTT plugin activated. 
 
 On your custom beat:
 
-main.go
+filebeat.go
 ```
 package main
 
@@ -16,7 +16,7 @@ import (
 
         _ "github.com/sidleal/mqttout"
 
-        "github.com/sidleal/countbeat/cmd"
+        "github.com/elastic/beats/filebeat/cmd"
 )
 
 func main() {
@@ -24,6 +24,14 @@ func main() {
                 os.Exit(1)
         }
 }
+```
+
+Build
+
+```
+cp filebeat.go to ~/go/src/filebeat/filebeat.go
+go get filebeat
+go build filebeat
 ```
 
 Config (yourbeat.yml):
